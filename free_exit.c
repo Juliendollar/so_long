@@ -6,7 +6,7 @@
 /*   By: jd-halle <jd-halle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 22:02:08 by jd-halle          #+#    #+#             */
-/*   Updated: 2024/10/01 07:15:51 by jd-halle         ###   ########.fr       */
+/*   Updated: 2024/10/02 22:03:16 by jd-halle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ void	clean_exit(t_game *game, const char *message)
 		mlx_destroy_display(game->mlx);
 		free(game->mlx);
 	}
-	/*if (game->mlx && game->addr)
-		mlx_destroy_image(game->mlx, game->addr);*/
 	if (message)
 		ft_printf("Error\n%s\n", message);
 	exit(1);

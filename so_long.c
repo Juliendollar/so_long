@@ -6,7 +6,7 @@
 /*   By: jd-halle <jd-halle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 20:28:11 by jd-halle          #+#    #+#             */
-/*   Updated: 2024/10/01 06:38:08 by jd-halle         ###   ########.fr       */
+/*   Updated: 2024/10/02 22:02:21 by jd-halle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,5 +129,5 @@ void	*get_image_for_tile(t_game *game, char tile, int player_direction)
 	}
 	else if (tile == '0')
 		return (game->img_empty);
-	return NULL;
+	return (NULL);
 }

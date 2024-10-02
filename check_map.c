@@ -6,7 +6,7 @@
 /*   By: jd-halle <jd-halle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 04:13:39 by jd-halle          #+#    #+#             */
-/*   Updated: 2024/09/30 05:53:32 by jd-halle         ###   ########.fr       */
+/*   Updated: 2024/10/02 19:13:41 by jd-halle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	fill_map(char *FILE, t_game *game)
 	if (fd == -1)
 		clean_exit (game, "Impossible d'ouvrir la map\n");
 	game->i = 0;
-	while (game->i < game->count_lines)
+	while (game->i <= game->count_lines)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
@@ -102,8 +102,7 @@ void	check_map2(t_game *game)
 		clean_exit(game, "Nombre de players P different de 1\n");
 	if (game->count_e != 1)
 		clean_exit(game, "Nombre de sorties E different de 1\n");
-	game->line_length = check_lines(game) -1;
-	printf("line_len = %d\n", game->line_length);
+	check_lines(game);
 	check_1st_and_last_line(game);
 	check_delimitation_map(game);
 }

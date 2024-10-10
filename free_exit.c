@@ -6,7 +6,7 @@
 /*   By: jd-halle <jd-halle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 22:02:08 by jd-halle          #+#    #+#             */
-/*   Updated: 2024/10/02 22:03:16 by jd-halle         ###   ########.fr       */
+/*   Updated: 2024/10/05 03:29:41 by jd-halle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ void	clean_exit2_destroy_img(t_game *game)
 {
 	if (game->mlx)
 	{
-		if (game->img)
-			mlx_destroy_image(game->mlx, game->img);
 		if (game->img_player)
 			mlx_destroy_image(game->mlx, game->img_player);
 		if (game->img_wall)

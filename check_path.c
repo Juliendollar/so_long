@@ -6,7 +6,7 @@
 /*   By: jd-halle <jd-halle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 22:09:49 by jd-halle          #+#    #+#             */
-/*   Updated: 2024/10/02 19:44:10 by jd-halle         ###   ########.fr       */
+/*   Updated: 2024/10/10 15:53:36 by jd-halle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,31 +35,35 @@ void	check_valid_path(t_game *game, t_player *player)
 
 	i = -1;
 	game->map_copy = create_map_copy(game, player);
-	dfs(game->map_copy, player->y, player->x, game);
+	flood_fill(game->map_copy, player->y, player->x, game);
 	while (++i < game->count_lines)
 	{
 		j = 0;
 		while (j < game->len_line)
 		{
-			if (game->map[i][j] == 'E' || game->map[i][j] == 'C')
+			if (game->map[i][j] == 'C')
 			{
 				if (game->map_copy[i][j] != 'V')
-					clean_exit(game, "Exit ou collectible non accessible");
+					clean_exit(game, "collectible non accessible");
 			}
+			if (!game->flag)
+				clean_exit(game, "exit non accessible");
 			j++;
 		}
 	}
 }
 
-void	dfs(char **map_copy, int i, int j, t_game *game)
+void	flood_fill(char **map_copy, int i, int j, t_game *game)
 {
-	if (map_copy[i][j] == '1' || map_copy[i][j] == 'V')
+	if (map_copy[i][j] == 'E')
+		game->flag = 1;
+	if (map_copy[i][j] == '1' || map_copy[i][j] == 'V' || map_copy[i][j] == 'E')
 		return ;
 	map_copy[i][j] = 'V';
-	dfs(map_copy, i +1, j, game);
-	dfs(map_copy, i -1, j, game);
-	dfs(map_copy, i, j +1, game);
-	dfs(map_copy, i, j -1, game);
+	flood_fill(map_copy, i +1, j, game);
+	flood_fill(map_copy, i -1, j, game);
+	flood_fill(map_copy, i, j +1, game);
+	flood_fill(map_copy, i, j -1, game);
 }
 
 char	**create_map_copy(t_game *game, t_player *player)

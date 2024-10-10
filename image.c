@@ -6,7 +6,7 @@
 /*   By: jd-halle <jd-halle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 02:00:09 by jd-halle          #+#    #+#             */
-/*   Updated: 2024/10/02 22:01:43 by jd-halle         ###   ########.fr       */
+/*   Updated: 2024/10/05 03:47:18 by jd-halle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,11 +120,7 @@ void	init_mlx(t_game *game)
 			game->count_lines * IMG_HEIGHT, "so_long");
 	if (!game->win)
 		clean_exit(game, "Erreur de création de la fenêtre\n");
-	game->img = mlx_new_image(game->mlx, (game->len_line -1) * IMG_WIDTH,
-			game->count_lines * IMG_HEIGHT);
 	temp_len_line = game->len_line;
-	game->addr = mlx_get_data_addr(game->img, &game->bpp,
-			&game->len_line, &game->endian);
 	game->len_line = temp_len_line;
 	load_images(game);
 	render_game(game);

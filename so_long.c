@@ -6,7 +6,7 @@
 /*   By: jd-halle <jd-halle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 20:28:11 by jd-halle          #+#    #+#             */
-/*   Updated: 2024/10/02 22:02:21 by jd-halle         ###   ########.fr       */
+/*   Updated: 2024/10/10 16:26:29 by jd-halle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void	move_player(t_game *game, int x, int y)
 		next_tile = game->map[game->player.y + y][game->player.x + x];
 		if (next_tile == 'E' && game->count_c > 0)
 			return ;
+		game->move_count++;
+		printf("count = %d\n", game->move_count);
 		game->map[game->player.y][game->player.x] = '0';
 		game->player.y = game->player.y + y;
 		game->player.x = game->player.x + x;

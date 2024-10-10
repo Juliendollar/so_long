@@ -6,7 +6,7 @@
 /*   By: jd-halle <jd-halle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 04:13:39 by jd-halle          #+#    #+#             */
-/*   Updated: 2024/10/02 19:13:41 by jd-halle         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:03:15 by jd-halle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	check_map(t_game *game)
 	i = -1;
 	while (++i < game->count_lines)
 	{
-		ft_printf("%s", game->map[i]);
 		j = 0;
 		while (game->map[i][j])
 		{
